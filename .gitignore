@@ -1,1 +1,5 @@
+# En este archivo se incluyen los archivos y/o directorios que no se quieren
+# llevar registrados en git, por ejemplo yo coloque el directorio .vscode que
+# es una carpeta autogenerada por el editor de texto / IDE vscode con configuraciones
+
 /.vscode/
