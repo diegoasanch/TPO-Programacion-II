@@ -7,5 +7,7 @@ public class ejemploApp {
     public static void main(String[] args) {
         System.out.println("Hello world!\n");
         System.out.println("Si todo salio bien podrian correr el programa y ver este mesaje en la consola.");
+
     }
+        System.out.println("Hello world!\n");
 }
