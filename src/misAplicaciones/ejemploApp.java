@@ -9,5 +9,5 @@ public class ejemploApp {
         System.out.println("Si todo salio bien podrian correr el programa y ver este mesaje en la consola.");
 
     }
-        System.out.println("Hello world!\n");
+    System.out.println("Hello world!\n");
 }
