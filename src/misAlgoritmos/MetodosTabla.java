@@ -20,12 +20,17 @@ public class MetodosTabla {
             FileReader arch = new FileReader(ubicacion);
             BufferedReader buffer = new BufferedReader(arch);
 
+            // Descartamos la linea del encabezado
+            buffer.readLine();
+
             String linea;
+            String nombre;
             linea = buffer.readLine();
 
             while (linea != null) {
-                if (!aCargar.pertenece(linea))
-                    aCargar.agregar(linea);
+                nombre = linea.strip();
+                if (!aCargar.pertenece(nombre))
+                    aCargar.agregar(nombre);
 
                 linea = buffer.readLine();
             }
