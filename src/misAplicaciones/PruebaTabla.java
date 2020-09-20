@@ -45,8 +45,13 @@ public class PruebaTabla {
 
         cargaTabla(miTabla, archivoPrueba);
 
-        ColaStrTDA valores = miTabla.elementosTabla();
-        metodos.imprimeCola(valores);
+        miTabla.ordenarNombres();
+        System.out.println("Tabla ordenada por nombre");
+        metodos.imprimeCola(miTabla.elementosTabla());
+
+        miTabla.ordenarCodigos();
+        System.out.println("Tabla ordenada por codigo");
+        metodos.imprimeCola(miTabla.elementosTabla());
     }
 
 }

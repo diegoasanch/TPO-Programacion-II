@@ -75,11 +75,58 @@ public class Tabla implements TablaTDA {
     }
 
     public void ordenarNombres() {
-        //
+        if (cant > 1) {
+            Nodo base = primero;
+            int codAux;
+            String nombreAux;
+
+            while (base.sig != null) {
+                Nodo actual = base.sig;
+
+                while (actual != null) {
+                    // Si el nombre base es alfabeticamente mayor al actual
+                    if (base.nombre.compareTo(actual.nombre) > 0) {
+                        codAux = base.cod;
+                        nombreAux = base.nombre;
+                        
+                        // Intercambiamos valores
+                        base.cod = actual.cod;
+                        base.nombre = actual.nombre;
+                        actual.cod = codAux;
+                        actual.nombre = nombreAux;
+                    }
+                    actual = actual.sig;
+                }
+                base = base.sig;
+            }
+        }
     }
 
     public void ordenarCodigos() {
-        //
+        if (cant > 1) {
+            Nodo base = primero;
+            int codAux;
+            String nombreAux;
+
+            while (base.sig != null) {
+                Nodo actual = base.sig;
+
+                while (actual != null) {
+                    if (base.cod > actual.cod) {
+                        codAux = base.cod;
+                        nombreAux = base.nombre;
+                        
+                        // Intercambiamos valores
+                        base.cod = actual.cod;
+                        base.nombre = actual.nombre;
+                        actual.cod = codAux;
+                        actual.nombre = nombreAux;
+                    }
+                    actual = actual.sig;
+                }
+                base = base.sig;
+            }
+        }
     }
 
     public boolean estaVacia() {
