@@ -3,7 +3,7 @@
  * implementaciones de Tabla y ColaStr
  */
 
-package misAplicaciones;
+package programasDePrueba;
 
 import misAlgoritmos.*;
 
