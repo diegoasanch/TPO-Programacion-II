@@ -40,7 +40,6 @@ public class DiccionarioSimple implements DiccionarioSimpleTDA {
             }
             anterior.sig = actual.sig;
         }
-
     }
 
     public int obtener(int a_buscar) {

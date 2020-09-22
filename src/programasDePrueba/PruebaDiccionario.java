@@ -1,4 +1,4 @@
-package misAplicaciones;
+package programasDePrueba;
 import miApi.*;
 import misImplementaciones.*;
 
