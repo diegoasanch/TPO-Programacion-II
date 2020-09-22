@@ -53,8 +53,11 @@ public class ProgramaPrincipal {
             // correspondiente, se envia un movimiento por ciclo
 
         }
-        solicitudes.imprimeConteo(registroSolicitudes);
-        // Aca al finalizar el ciclo se haran los llamados a los programas para que estos emitan
-        // su reporte
+        
+        /** Aca al finalizar el ciclo se haran los llamados a los programas para que estos emitan
+        su reporte */
+        
+        // Item 4 
+        solicitudes.topSolicitudes(registroSolicitudes, peliculas);
     }
 }
