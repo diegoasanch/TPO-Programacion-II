@@ -9,8 +9,6 @@ import miApi.ColaPrioridadTDA;
 import miApi.DiccionarioSimpleTDA;
 import miApi.DiccionarioMultipleTDA;
 
-import misImplementaciones.Tabla;
-import misImplementaciones.ColaInt;
 import misImplementaciones.DiccionarioSimple;
 import misImplementaciones.DiccionarioMultiple;
 
@@ -19,26 +17,18 @@ import misAlgoritmos.MetodosColaInt;
 
 public class ProgramaPrincipal {
     public static void main(String[] args) {
+        
+        // Inicializamos los metodos que llevaran a cabo las funciones
         MetodosTabla metodosTablas = new MetodosTabla();
         MetodosColaInt metodosColasInt = new MetodosColaInt();
-
-        // Inicializamos las Tablas y las Cargamos
-        TablaTDA peliculas = new Tabla();
-        peliculas.inicializarTabla();
-
-        TablaTDA proveedores = new Tabla();
-        proveedores.inicializarTabla();
-
-        metodosTablas.cargaTabla(peliculas, "archivos_de_prueba/ListadoPeliculas.txt");    
-        metodosTablas.cargaTabla(proveedores, "archivos_de_prueba/StreamCia.txt");
-
-        // Creamos y cargamos la cola con los movimientos
-        ColaIntTDA movimientos = new ColaInt();
-        movimientos.inicializarCola();
-        metodosColasInt.cargarMovimientos("archivos_de_prueba/Movimientos.txt", movimientos, peliculas, proveedores);
-        
-        // Inicializamos la clase que lleva el conteo de las solicitudes
         CantSolicitudes solicitudes = new CantSolicitudes();
+        
+        // Inicializamos las Tablas y las Cargamos
+        TablaTDA peliculas = metodosTablas.cargaTabla("archivos_de_prueba/ListadoPeliculas.txt");
+        TablaTDA proveedores = metodosTablas.cargaTabla("archivos_de_prueba/StreamCia.txt");
+    
+        // Creamos y cargamos la cola con los movimientos
+        ColaIntTDA movimientos = metodosColasInt.cargarMovimientos("archivos_de_prueba/Movimientos.txt", peliculas, proveedores);
         
         // Creamos el diccionario para el registro de las solicitudes
         DiccionarioSimpleTDA registroSolicitudes = new DiccionarioSimple();
@@ -48,12 +38,13 @@ public class ProgramaPrincipal {
         DiccionarioMultipleTDA registroCompanias = new DiccionarioMultiple();
         registroCompanias.inicializarDiccionarioMultiple();
 
-
-
         int mov;
         int idPelicula, idProveedor;
 
         while (!movimientos.colaVacia()) {
+            // Aca se envia el numero de movimiento a cada uno de los programa para que realicen la clasificacion
+            // correspondiente, se envia un movimiento por ciclo
+
             mov = movimientos.primero();
             movimientos.desacolar();
             
@@ -63,8 +54,6 @@ public class ProgramaPrincipal {
             solicitudes.conteoSolicitudes(registroSolicitudes, idPelicula);
             solicitudes.registraCompania(registroCompanias, idPelicula, idProveedor);
             
-            // Aca se envia el numero de movimiento a cada uno de los programa para que realicen la clasificacion
-            // correspondiente, se envia un movimiento por ciclo
         }
         
         /** Aca al finalizar el ciclo se haran los llamados a los programas para que estos emitan
@@ -72,9 +61,12 @@ public class ProgramaPrincipal {
         
         ColaPrioridadTDA masSolicitados = solicitudes.generaColaSolicitudes(registroSolicitudes);
         
+        System.out.println('+' + "-".repeat(60) + '+');
         // Item 3
         solicitudes.imprimeCompanias(registroCompanias, masSolicitados, peliculas);
+        
+        System.out.println('+' + "-".repeat(60) + '+');
         // Item 4
-        solicitudes.topSolicitudes(masSolicitados, peliculas);
+        solicitudes.topSolicitudes(masSolicitados, peliculas, 5);
     }
 }

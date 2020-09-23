@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 import miApi.TablaTDA;
+import misImplementaciones.Tabla;
 
 
 public class MetodosTabla {
@@ -15,16 +16,18 @@ public class MetodosTabla {
     /** Recibe una instancia de TablaTDA a ser cargada y la ubicacion del archivo a leer
      * @Precondicion La tabla a cargar debe estar inicializada
      */
-    public void cargaTabla(TablaTDA aCargar, String ubicacion) {
+    public TablaTDA cargaTabla(String ubicacion) {
         try {
             FileReader arch = new FileReader(ubicacion);
             BufferedReader buffer = new BufferedReader(arch);
 
+            TablaTDA aCargar = new Tabla();
+            aCargar.inicializarTabla();
+            
+            String linea, nombre;
+
             // Descartamos la linea del encabezado
             buffer.readLine();
-
-            String linea;
-            String nombre;
             linea = buffer.readLine();
 
             while (linea != null) {
@@ -35,9 +38,11 @@ public class MetodosTabla {
                 linea = buffer.readLine();
             }
             arch.close();
+            return aCargar;
         }
         catch (Exception e) {
             System.out.println("Ocurrio un error al leer el ubicacion " + ubicacion + ": " + e);
+            return null;
         }
     }
     

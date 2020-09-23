@@ -41,8 +41,9 @@ public class CantSolicitudes {
             registro.agregar(idPelicula, idProveedor);
     }
 
-    /** Crea una conjunto con el id de pelicula de las mas solicitadas
+    /** Imprime las peliculas con mayor cantidad de solicitudes junto a que empresa fueron solicitadas
      * @Precondicion el Diccionario de registro debe estar inicializado
+     * @Precondicion la cola de masSolicitados debe estar inicializado
       */
     public void imprimeCompanias(DiccionarioMultipleTDA registro, ColaPrioridadTDA masSolicitados, TablaTDA nombrePeliculas) {
         MetodosColaPrioridad metodos = new MetodosColaPrioridad();
@@ -52,6 +53,8 @@ public class CantSolicitudes {
         ConjuntoTDA cias;
         masSolicitada = prio = copiaSolicitudes.primeraPrioridad();
         
+        System.out.println("\nPeliculas mas solicitadas:\n");
+
         while (prio == masSolicitada) {
 
             peli = copiaSolicitudes.primerValor();
@@ -98,9 +101,10 @@ public class CantSolicitudes {
 
     /** Imprime una cola con prioridad de manera valor = pelicula; prioridad = n de solicitudes
      * las 10 peliculas mas solicitadas, el nombre de la pelicula se busca en la TablaTDA nombrePeliculas
+     * @param top cantidad de elementos en el listado
      * @precondicion La cola y la tabla deben estar inicializadas, los codigos de la cola deben pertenecer a la tabla
      */
-    public void topSolicitudes(ColaPrioridadTDA solicitudes, TablaTDA nombrePeliculas) {
+    public void topSolicitudes(ColaPrioridadTDA solicitudes, TablaTDA nombrePeliculas, int top) {
         
         int peli, cant;
 
@@ -108,9 +112,10 @@ public class CantSolicitudes {
 
         ColaPrioridadTDA copiaSolicitudes = metodosColaPri.copiaCola(solicitudes);
 
+        System.out.printf("%nTop %d Peliculas mas solicitadas:%n%n", top);
         System.out.println("Solicitudes        Pelicula");
         System.out.println("---------------------------------");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < top; i++) {
             peli = copiaSolicitudes.primerValor();
             cant = copiaSolicitudes.primeraPrioridad();
             copiaSolicitudes.desacolar();

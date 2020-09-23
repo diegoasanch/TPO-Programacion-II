@@ -47,16 +47,17 @@ public class MetodosColaInt {
      * @Precondicion Las tablas deben estar cargadas con los datos a utilizar
      * @Precondicion La cola recibida debe estar inicializada
      */
-    public void cargarMovimientos(String archivo, ColaIntTDA aCargar, TablaTDA peliculas, TablaTDA proveedores) {
+    public ColaIntTDA cargarMovimientos(String archivo, TablaTDA peliculas, TablaTDA proveedores) {
         try {
             FileReader arch = new FileReader(archivo);
             BufferedReader buffer = new BufferedReader(arch);
 
-            int idPersona;
             String linea;
-            int idProveedor;
-            int idPelicula;
-            int codigoCompuesto;
+            int idPersona, idProveedor;
+            int  idPelicula, codigoCompuesto;
+
+            ColaIntTDA aCargar = new ColaInt();
+            aCargar.inicializarCola();
 
             linea = buffer.readLine();
             while (linea != null) {
@@ -72,9 +73,12 @@ public class MetodosColaInt {
                 aCargar.acolar(codigoCompuesto);
             }
             arch.close();
+
+            return aCargar;
         }
         catch (Exception e) {
             System.out.println("Ocurrio un error al leer el archivo " + archivo + ": " + e);
+            return null;
         }
     }
 }

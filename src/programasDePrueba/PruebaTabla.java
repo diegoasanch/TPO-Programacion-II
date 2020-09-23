@@ -8,7 +8,6 @@ package programasDePrueba;
 import misAlgoritmos.*;
 
 import miApi.*;
-import misImplementaciones.*;
 
 public class PruebaTabla {
 
@@ -18,10 +17,7 @@ public class PruebaTabla {
 
         String archivoPrueba = "archivos_de_prueba/StreamCia.txt";
 
-        TablaTDA miTabla = new Tabla();
-        miTabla.inicializarTabla();
-
-        metodosTabla.cargaTabla(miTabla, archivoPrueba);
+        TablaTDA miTabla = metodosTabla.cargaTabla(archivoPrueba);
 
         miTabla.ordenarNombres();
         System.out.println("Tabla ordenada por nombre");
