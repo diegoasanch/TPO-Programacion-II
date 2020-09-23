@@ -62,6 +62,17 @@ public class Tabla implements TablaTDA {
         return codAsociado;
     }
 
+    public String nombre(int codigo) {
+        Nodo actual = primero;
+        String nombAsociado = actual.nombre;
+
+        while (actual.cod != codigo) {
+            actual = actual.sig;
+            nombAsociado = actual.nombre;
+        }
+        return nombAsociado;
+    }
+
     public ColaStrTDA elementosTabla() {
         ColaStrTDA elementos = new ColaStr();
         elementos.inicializarCola();

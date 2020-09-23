@@ -27,6 +27,11 @@ public interface TablaTDA {
      */
     public int codigo(String nombre);
 
+    /** Indica el nombre relacionado a un codigo suministrado
+     * @Precondicion El codigo debe pertenecer a la tabla
+     */
+    public String nombre(int codigo);
+
     /** Devuelve los elementos en una estructura ColaStrTDA donde cada elemento
      * corresponde a la concatenacion "codigo;nombre" segun el orden de guardados
      * @Precondicion La tabla debe estar inicializada
