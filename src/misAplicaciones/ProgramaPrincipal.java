@@ -39,7 +39,7 @@ public class ProgramaPrincipal {
         registroCompanias.inicializarDiccionarioMultiple();
 
         int mov;
-        int idPelicula, idProveedor;
+        int idPelicula, idProveedor, idPersona;
 
         while (!movimientos.colaVacia()) {
             // Aca se envia el numero de movimiento a cada uno de los programa para que realicen la clasificacion
@@ -48,6 +48,7 @@ public class ProgramaPrincipal {
             mov = movimientos.primero();
             movimientos.desacolar();
             
+            idPersona = mov / 1000000;
             idProveedor = (mov / 10000) % 1000; 
             idPelicula = mov % 10000;
 
@@ -67,6 +68,6 @@ public class ProgramaPrincipal {
         
         System.out.println('+' + "-".repeat(60) + '+');
         // Item 4
-        solicitudes.topSolicitudes(masSolicitados, peliculas, 5);
+        solicitudes.topSolicitudes(masSolicitados, peliculas, 10);
     }
 }
