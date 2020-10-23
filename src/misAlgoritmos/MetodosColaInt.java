@@ -68,7 +68,7 @@ public class MetodosColaInt {
                 
                 linea = buffer.readLine();
 
-                // IIIPPSSSS donde III es el identificador de persona, PP es el código de proveedor y SSSS es el código de película.
+                // IIIPPSSSS donde III es el identificador de persona, PP es el codigo de proveedor y SSSS es el codigo de pelicula.
                 codigoCompuesto = ((idPersona * 100) + idProveedor) * 10000 + idPelicula;
                 aCargar.acolar(codigoCompuesto);
             }

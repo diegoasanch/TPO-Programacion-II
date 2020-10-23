@@ -58,7 +58,7 @@ public class Tabla implements TablaTDA {
         while (!actual.nombre.equals(nombre)) {
             actual = actual.sig;
             codAsociado = actual.cod;
-        }
+        } 
         return codAsociado;
     }
 

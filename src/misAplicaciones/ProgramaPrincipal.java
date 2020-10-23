@@ -6,14 +6,20 @@ package misAplicaciones;
 import miApi.TablaTDA;
 import miApi.ColaIntTDA;
 import miApi.ColaPrioridadTDA;
+import miApi.ColaStrTDA;
 import miApi.DiccionarioSimpleTDA;
 import miApi.DiccionarioMultipleTDA;
+import miApi.PilaIntTDA;
 
 import misImplementaciones.DiccionarioSimple;
+import misImplementaciones.PilaInt;
 import misImplementaciones.DiccionarioMultiple;
+
 
 import misAlgoritmos.MetodosTabla;
 import misAlgoritmos.MetodosColaInt;
+
+
 
 public class ProgramaPrincipal {
     public static void main(String[] args) {
@@ -23,6 +29,8 @@ public class ProgramaPrincipal {
         MetodosColaInt metodosColasInt = new MetodosColaInt();
         ListMayorCantPeliculas solicitudesPeli = new ListMayorCantPeliculas();
         CantSolicitudes solicitudes = new CantSolicitudes();
+        listadoMov listaUltimos = new listadoMov();
+        
         
         // Inicializamos las Tablas y las Cargamos
         TablaTDA peliculas = metodosTablas.cargaTabla("archivos_de_prueba/ListadoPeliculas.txt");
@@ -40,7 +48,14 @@ public class ProgramaPrincipal {
         // Creamos el diccionario multiple para el registro a quien se les solicito la pelicula
         DiccionarioMultipleTDA registroCompanias = new DiccionarioMultiple();
         registroCompanias.inicializarDiccionarioMultiple();
-
+        
+        // Creamos la pila para los 10 ultimos movimientos
+        PilaIntTDA pilaUltimos = new PilaInt();
+        pilaUltimos.inicializarPila();
+        
+        
+        
+        
         int mov;
         int idPelicula, idProveedor, idPersona;
 
@@ -54,6 +69,8 @@ public class ProgramaPrincipal {
             idPersona = mov / 1000000;
             idProveedor = (mov / 10000) % 1000; 
             idPelicula = mov % 10000;
+            
+            pilaUltimos.apilar(mov);
 
             solicitudes.conteoSolicitudes(registroSolicitudes, idPelicula);
             solicitudes.registraCompania(registroCompanias, idPelicula, idProveedor);
@@ -63,12 +80,20 @@ public class ProgramaPrincipal {
         /** Aca al finalizar el ciclo se haran los llamados a los programas para que estos emitan
         su reporte */
         
+        
         ColaPrioridadTDA masSolicitados = solicitudes.generaColaSolicitudes(registroSolicitudes);
+
         ColaPrioridadTDA personasMasSolicitudes = solicitudes.generaColaSolicitudes(diccSolicitudes);
         
         System.out.println('+' + "-".repeat(60) + '+');
         // Item 2
         solicitudesPeli.imprimeSolicitudes(personasMasSolicitudes);
+
+        ColaStrTDA lista10Ultimos = listaUltimos.crearColaDiezUltimos(pilaUltimos, peliculas, proveedores);
+        
+        // Item 1
+        listaUltimos.mostrarColaStr(lista10Ultimos);
+
         
         System.out.println('+' + "-".repeat(60) + '+');
         // Item 3
