@@ -21,6 +21,7 @@ public class ProgramaPrincipal {
         // Inicializamos los metodos que llevaran a cabo las funciones
         MetodosTabla metodosTablas = new MetodosTabla();
         MetodosColaInt metodosColasInt = new MetodosColaInt();
+        ListMayorCantPeliculas solicitudesPeli = new ListMayorCantPeliculas();
         CantSolicitudes solicitudes = new CantSolicitudes();
         
         // Inicializamos las Tablas y las Cargamos
@@ -33,6 +34,8 @@ public class ProgramaPrincipal {
         // Creamos el diccionario para el registro de las solicitudes
         DiccionarioSimpleTDA registroSolicitudes = new DiccionarioSimple();
         registroSolicitudes.inicializarDiccionarioSimple();
+        DiccionarioSimpleTDA diccSolicitudes = new DiccionarioSimple();
+        diccSolicitudes.inicializarDiccionarioSimple();
 
         // Creamos el diccionario multiple para el registro a quien se les solicito la pelicula
         DiccionarioMultipleTDA registroCompanias = new DiccionarioMultiple();
@@ -54,13 +57,18 @@ public class ProgramaPrincipal {
 
             solicitudes.conteoSolicitudes(registroSolicitudes, idPelicula);
             solicitudes.registraCompania(registroCompanias, idPelicula, idProveedor);
-            
+            solicitudesPeli.Llevarconteo(diccSolicitudes, idPersona);
         }
         
         /** Aca al finalizar el ciclo se haran los llamados a los programas para que estos emitan
         su reporte */
         
         ColaPrioridadTDA masSolicitados = solicitudes.generaColaSolicitudes(registroSolicitudes);
+        ColaPrioridadTDA personasMasSolicitudes = solicitudes.generaColaSolicitudes(diccSolicitudes);
+        
+        System.out.println('+' + "-".repeat(60) + '+');
+        // Item 2
+        solicitudesPeli.imprimeSolicitudes(personasMasSolicitudes);
         
         System.out.println('+' + "-".repeat(60) + '+');
         // Item 3
