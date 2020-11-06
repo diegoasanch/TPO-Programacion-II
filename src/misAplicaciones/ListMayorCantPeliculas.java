@@ -1,11 +1,7 @@
 package misAplicaciones;
 import miApi.ColaPrioridadTDA;
-import miApi.ConjuntoTDA;
-import miApi.DiccionarioMultipleTDA;
 import miApi.DiccionarioSimpleTDA;
-import miApi.TablaTDA;
 import misAlgoritmos.MetodosColaPrioridad;
-import misImplementaciones.ColaPrioridad;
 
 public class ListMayorCantPeliculas {
 	public void Llevarconteo(DiccionarioSimpleTDA registro, int idPelicula){
