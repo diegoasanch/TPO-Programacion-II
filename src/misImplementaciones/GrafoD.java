@@ -51,7 +51,7 @@ public class GrafoD implements GrafoTDA {
     }
 
     @Override
-    public void eliminarVertice(int vert) { // TODO: Eliminar las aristas relacionadas al vertice
+    public void eliminarVertice(int vert) {
         // Si es el primero
         if (inicioVertice.vert == vert)
             inicioVertice = inicioVertice.sigVertice;
@@ -65,6 +65,27 @@ public class GrafoD implements GrafoTDA {
                 actual = actual.sigVertice;
             }
             anterior.sigVertice = actual.sigVertice;
+        }
+
+        // Eliminamos todas las aristas con relacion al nodo
+        NodoV vertActual = inicioVertice;
+        NodoA aristaActual;
+        int origen, destino;
+        // Recorremos todos los vertices
+        while (vertActual != null) {
+            aristaActual = vertActual.inicioArista;
+
+            // Recorremos todas las aristas del vertice
+            while (aristaActual != null) {
+                origen = vertActual.vert;
+                destino = aristaActual.destino.vert;
+
+                if (origen == vert || destino == vert)
+                    eliminarArista(origen, destino);
+
+                aristaActual = aristaActual.sigArista;
+            }
+            vertActual = vertActual.sigVertice;
         }
     }
 
