@@ -22,11 +22,11 @@ public class GrafoE implements GrafoTDA {
     @Override
     public void agregarVertice(int vert) {
         etiquetas[cant] = vert;
-            
+
         for (int i = 0; i < cant; i++) {
             matriz[cant][i] = 0;
             matriz[i][cant] = 0;
-        }    
+        }
         cant++;
     }
 
@@ -41,7 +41,7 @@ public class GrafoE implements GrafoTDA {
     public void eliminarVertice(int vert) {
         int pos = buscaPos(vert);
         etiquetas[pos] = etiquetas[cant - 1];
-        
+
         for (int i = 0; i < cant; i++) {
             matriz[pos][i] = matriz[cant - 1][i];
             matriz[i][pos] = matriz[i][cant - 1];

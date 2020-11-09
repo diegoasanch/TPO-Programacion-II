@@ -8,17 +8,15 @@ import miApi.TablaTDA;
 import miApi.ColaPrioridadTDA;
 import miApi.ConjuntoTDA;
 import miApi.DiccionarioMultipleTDA;
+
 import misAlgoritmos.MetodosDiccionarioSimple;
-import misImplementaciones.ColaPrioridad;
 import misAlgoritmos.MetodosColaPrioridad;
 
-// import miApi.ConjuntoTDA;
-// import misImplementaciones.DiccionarioSimple;
-// ejemplo
+import misImplementaciones.ColaPrioridad;
 
 public class CantSolicitudes {
-    
-    /** Lleva el conteo de las solicitudes totales de una pelicula, lleva el conteo 
+
+    /** Lleva el conteo de las solicitudes totales de una pelicula, lleva el conteo
      * @precondicion El DiccionarioSimple de registro debe estar inicializado
     */
     public void conteoSolicitudes(DiccionarioSimpleTDA registro, int idPelicula) {
@@ -31,7 +29,7 @@ public class CantSolicitudes {
         // Creamos nuevo elemento con clave= idPelicula y las entradas totales
         registro.agregar(idPelicula, entradas);
     }
-    
+
     /** Lleva el registro de a que empresas fue solicitada una pelicula
      * @Precondicion el DiccionarioTDA registro debe estar inicializado
      */
@@ -53,7 +51,7 @@ public class CantSolicitudes {
         int peli, cia, prio, masSolicitada;
         ConjuntoTDA cias;
         masSolicitada = prio = copiaSolicitudes.primeraPrioridad();
-        
+
         System.out.println("\nPeliculas mas solicitadas:\n");
 
         while (prio == masSolicitada) {
@@ -106,7 +104,7 @@ public class CantSolicitudes {
      * @precondicion La cola y la tabla deben estar inicializadas, los codigos de la cola deben pertenecer a la tabla
      */
     public void topSolicitudes(ColaPrioridadTDA solicitudes, TablaTDA nombrePeliculas, int top) {
-        
+
         int peli, cant;
 
         MetodosColaPrioridad metodosColaPri = new MetodosColaPrioridad();

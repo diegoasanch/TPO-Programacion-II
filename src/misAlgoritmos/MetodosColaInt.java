@@ -14,7 +14,6 @@ import misImplementaciones.ColaInt;
 
 public class MetodosColaInt {
 
-
     // Transfiere los elementos de cola1 a cola2
     public void colaToCola(ColaIntTDA cola1, ColaIntTDA cola2) {
         while (! cola1.colaVacia()) {
@@ -65,7 +64,7 @@ public class MetodosColaInt {
                 idPersona = Integer.valueOf(lista[0]);
                 idProveedor = proveedores.codigo(lista[2].strip());
                 idPelicula = peliculas.codigo(lista[1].strip());
-                
+
                 linea = buffer.readLine();
 
                 // IIIPPSSSS donde III es el identificador de persona, PP es el codigo de proveedor y SSSS es el codigo de pelicula.
@@ -81,6 +80,4 @@ public class MetodosColaInt {
             return null;
         }
     }
-    
-    //public 
 }

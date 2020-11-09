@@ -58,7 +58,7 @@ public class Tabla implements TablaTDA {
         while (!actual.nombre.equals(nombre)) {
             actual = actual.sig;
             codAsociado = actual.cod;
-        } 
+        }
         return codAsociado;
     }
 
@@ -99,7 +99,7 @@ public class Tabla implements TablaTDA {
                     if (base.nombre.compareTo(actual.nombre) > 0) {
                         codAux = base.cod;
                         nombreAux = base.nombre;
-                        
+
                         // Intercambiamos valores
                         base.cod = actual.cod;
                         base.nombre = actual.nombre;
@@ -126,7 +126,7 @@ public class Tabla implements TablaTDA {
                     if (base.cod > actual.cod) {
                         codAux = base.cod;
                         nombreAux = base.nombre;
-                        
+
                         // Intercambiamos valores
                         base.cod = actual.cod;
                         base.nombre = actual.nombre;

@@ -37,7 +37,7 @@ public class ColaPrioridad implements ColaPrioridadTDA {
 
             nuevo.sig = actual;
             anterior.sig = nuevo;
-        }     
+        }
     }
 
     public void desacolar() {
@@ -47,7 +47,7 @@ public class ColaPrioridad implements ColaPrioridadTDA {
     public int primerValor() {
         return inicio.valor;
     }
-    
+
     public int primeraPrioridad() {
         return inicio.prior;
     }

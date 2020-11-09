@@ -1,4 +1,10 @@
 /** @author Diego Sanchez
+ * Esta no es la implementacion dinamica vista en clase, es mi propia
+ * implementacion que hice antes de ver la clase. Al cambiar a la nueva
+ * version todo deberia funcionar sin problemas ya que utiliza la misma
+ * interfase
+ *
+ * TODO: cambiar la implementacion utilizada por la vista en clase
 */
 package misImplementaciones;
 
@@ -102,7 +108,7 @@ public class DiccionarioMultiple implements DiccionarioMultipleTDA {
         conjClaves.inicializarConjunto();
 
         Nodo actual = inicio;
-        
+
         while (actual != null) {
             conjClaves.agregar(actual.clave);
             actual = actual.sig;

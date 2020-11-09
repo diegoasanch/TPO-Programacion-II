@@ -7,12 +7,12 @@
 package miApi;
 
 public interface DiccionarioMultipleTDA {
-    
+
     // Inicializa el diccionario
     public void inicializarDiccionarioMultiple();
 
-    /** Agrega un valor a una clave, ambos datos suministrados. Si no existe la 
-     * clave, se agrega. 
+    /** Agrega un valor a una clave, ambos datos suministrados. Si no existe la
+     * clave, se agrega.
      * @Precondicion El diccionario debe estar inicializado y el valor no debe
      * existir para esa clave
      */
@@ -29,7 +29,7 @@ public interface DiccionarioMultipleTDA {
     public void eliminaValor(int clave, int valor);
 
     /** Devuelve el conjunto de valores asociadosa una clave suministrada. No
-     * elimina los valores. 
+     * elimina los valores.
      * @Precondicion La clave debe existir
      */
     public ConjuntoTDA obtener(int clave);

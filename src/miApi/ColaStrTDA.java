@@ -15,17 +15,17 @@ public interface ColaStrTDA {
      * @Precondicion La estructura debe estar inicializda
      */
     public void acolar(String x);
-    
+
     /** Elimina el elemento mas antiguo agregado
      * @Precondicion La estructura no debe estar vacia
      */
     public void desacolar();
-    
+
     /** Obtiene el primer elemento a eliminar
      * @Precondicion La estructura no debe estar vacia
      */
     public String primero();
-    
+
     /** Indica si la cola contiene elementos o no
      * @Precondicion La estructura deve estar inicializada
      */

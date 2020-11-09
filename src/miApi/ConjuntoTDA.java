@@ -33,6 +33,6 @@ public interface ConjuntoTDA {
      * @Precondicion el conjunto debe estar incializado
      */
     public boolean pertenece(int x);
-    
+
 }
 

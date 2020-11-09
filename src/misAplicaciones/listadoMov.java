@@ -13,17 +13,15 @@ public class listadoMov {
         while(!cola.colaVacia()){
             String valor = cola.primero();
             cola.desacolar();
-            
+
             System.out.println(valor);
         }
     }
-	
-	
-         
+
 	public ColaStrTDA crearColaDiezUltimos(PilaIntTDA pilaUltimos, TablaTDA peliculas, TablaTDA proveedores) {
 		ColaStrTDA cola = new ColaStr();
 		cola.inicializarCola();
-		
+
 		int cantidadParaDesapilar = 10;
 		while (!pilaUltimos.pilaVacia() && cantidadParaDesapilar > 0) {
 			int dato = pilaUltimos.tope();
@@ -37,15 +35,10 @@ public class listadoMov {
 			cantidadParaDesapilar--;
 		}
 		return cola;
-		
 	}
+}
 
-	
 
-	
-	}
 
-	
-        
-    
+
 

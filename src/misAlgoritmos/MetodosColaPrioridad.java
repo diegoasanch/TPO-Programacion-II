@@ -4,14 +4,14 @@ import miApi.ColaPrioridadTDA;
 import misImplementaciones.ColaPrioridad;
 
 public class MetodosColaPrioridad {
-    
+
     /** Copia todo el contenido de cola prioridad 'desde' en 'hacia' sin modificar la original
      * @Precondicion ambas colas deben estar inicializadas.
      */
     public ColaPrioridadTDA copiaCola(ColaPrioridadTDA desde) {
         ColaPrioridadTDA colaAux = new ColaPrioridad();
         colaAux.inicializarCola();
-        
+
         ColaPrioridadTDA hacia = new ColaPrioridad();
         hacia.inicializarCola();
 

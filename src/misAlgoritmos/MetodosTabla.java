@@ -23,7 +23,7 @@ public class MetodosTabla {
 
             TablaTDA aCargar = new Tabla();
             aCargar.inicializarTabla();
-            
+
             String linea, nombre;
 
             // Descartamos la linea del encabezado
@@ -45,5 +45,5 @@ public class MetodosTabla {
             return null;
         }
     }
-    
+
 }

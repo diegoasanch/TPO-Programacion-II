@@ -13,11 +13,11 @@ public class PruebaDiccMultiple {
         for (i = 0; i < 10; i++)
             for (j = i; j < (i + 10); j++)
                 dicc.agregar(i, j);
-        
+
         int clave, valor;
         ConjuntoTDA claves = dicc.claves();
         ConjuntoTDA valores;
-        
+
         while (!claves.conjuntoVacio()) {
             clave = claves.obtener();
             claves.sacar(clave);
