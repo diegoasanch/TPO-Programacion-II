@@ -27,6 +27,7 @@ public class ProgramaPrincipal {
         ListMayorCantPeliculas solicitudesPeli = new ListMayorCantPeliculas();
         CantSolicitudes solicitudes = new CantSolicitudes();
         listadoMov listaUltimos = new listadoMov();
+        MismaPeli mismaPelicula = new MismaPeli();
 
         // Inicializamos las Tablas y las Cargamos
         TablaTDA peliculas = metodosTablas.cargaTabla("archivos_de_prueba/ListadoPeliculas.txt");
@@ -49,6 +50,10 @@ public class ProgramaPrincipal {
         PilaIntTDA pilaUltimos = new PilaInt();
         pilaUltimos.inicializarPila();
 
+        // Creamos el diccionario multiple para las personas que solicitaron la misma pelicula a distintos proveedores
+        DiccionarioMultipleTDA registroMismaPeli = new DiccionarioMultiple();
+        registroMismaPeli.inicializarDiccionarioMultiple();
+
         int mov;
         int idPelicula, idProveedor, idPersona;
 
@@ -67,6 +72,7 @@ public class ProgramaPrincipal {
             solicitudes.conteoSolicitudes(registroSolicitudes, idPelicula);
             solicitudes.registraCompania(registroCompanias, idPelicula, idProveedor);
             solicitudesPeli.llevarconteo(diccSolicitudes, idPersona);
+            mismaPelicula.registraMov(idPelicula, idPersona, idProveedor, registroMismaPeli);
         }
 
         /** Aca al finalizar el ciclo se haran los llamados a los programas para que estos emitan
@@ -81,15 +87,20 @@ public class ProgramaPrincipal {
         listaUltimos.mostrarColaStr(lista10Ultimos);
 
         // Item 2
-        System.out.println("+ item 2 " + "-".repeat(60) + '+');
+        System.out.println("\n\n+ item 2 " + "-".repeat(60) + '+');
         solicitudesPeli.imprimeSolicitudes(personasMasSolicitudes);
 
         // Item 3
-        System.out.println("+ item 3 " + "-".repeat(60) + '+');
+        System.out.println("\n\n+ item 3 " + "-".repeat(60) + '+');
         solicitudes.imprimeCompanias(registroCompanias, masSolicitados, peliculas);
 
         // Item 4
-        System.out.println("+ item 4 " + "-".repeat(60) + '+');
+        System.out.println("\n\n+ item 4 " + "-".repeat(60) + '+');
         solicitudes.topSolicitudes(masSolicitados, peliculas, 10);
+        
+        // Item 5
+        System.out.println("\n\n+ item 5 " + "-".repeat(60) + '+');
+        mismaPelicula.imprimeReporte(registroMismaPeli);
+        
     }
 }
