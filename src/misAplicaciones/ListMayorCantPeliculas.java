@@ -1,3 +1,5 @@
+/** @author Diego Sanchez */
+
 package misAplicaciones;
 import miApi.ColaPrioridadTDA;
 import miApi.DiccionarioSimpleTDA;
@@ -5,6 +7,7 @@ import misAlgoritmos.MetodosColaPrioridad;
 import misImplementaciones.ColaPrioridad;
 
 public class ListMayorCantPeliculas {
+
 	public void llevarconteo(DiccionarioSimpleTDA registro, int idPelicula){
 		int entradas = 1;
         // Si la pelicula ya existe sacamos su valor anterior y le sumamos 1, eliminamos esa clave

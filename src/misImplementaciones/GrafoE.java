@@ -1,7 +1,8 @@
-package misImplementaciones;
 /** @author Diego Sanchez
  * Implementacion estatica de grafo con conjunto acotado
  */
+
+package misImplementaciones;
 
 import miApi.ConjuntoTDA;
 import miApi.GrafoTDA;

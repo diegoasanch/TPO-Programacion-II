@@ -1,8 +1,10 @@
+/**@author Marian Coto, Diego Sanchez
+*/
+
 package misAplicaciones;
 import miApi.DiccionarioMultipleTDA;
 import miApi.ConjuntoTDA;
 import misAlgoritmos.MetodosConjunto;
-
 public class MismaPeli {
     public void registraMov(int id_peli, int id_pers, int id_prov, DiccionarioMultipleTDA registro) {
         int clave = (id_pers * 10000) + id_peli; // III SSSS

@@ -10,19 +10,20 @@ public class PruebaConj {
         conj.inicializarConjunto();
 
         int i;
-        for (i = 0; i < 10; conj.agregar(i++))
+        for (i = 0; i < 4; conj.agregar(i++))
             ;
         
         MetodosConjunto met = new MetodosConjunto();
 
-        int len = met.longitud(conj);
-        System.out.printf("La longitud del conjunto es de %d%n", len);
+        met.imprimeCon(conj);
+        // int len = met.longitud(conj);
+        // System.out.printf("La longitud del conjunto es de %d%n", len);
         
-        while (!conj.conjuntoVacio()) {
-            len = conj.obtener();
-            conj.sacar(len);
-            System.out.println(len);
-        }
+        // while (!conj.conjuntoVacio()) {
+        //     len = conj.obtener();
+        //     conj.sacar(len);
+        //     System.out.println(len);
+        // }
     }
     
 }

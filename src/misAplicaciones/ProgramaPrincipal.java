@@ -1,6 +1,7 @@
 /** @author Diego Sanchez, Alexis Weigandt, Maxi Rosso, Mariano Coto
  * Programa principal
  */
+
 package misAplicaciones;
 
 import miApi.TablaTDA;
@@ -58,7 +59,7 @@ public class ProgramaPrincipal {
         int idPelicula, idProveedor, idPersona;
 
         while (!movimientos.colaVacia()) {
-            // Aca se envia el numero de movimiento a cada uno de los programa para que realicen la clasificacion
+            // Aca se envia el numero de movimiento a cada uno de los programas para que realicen la clasificacion
             // correspondiente, se envia un movimiento por ciclo
 
             mov = movimientos.primero();

@@ -38,4 +38,18 @@ public class MetodosConjunto {
         }
         return nuevo;
     }
+
+    public void imprimeCon(ConjuntoTDA conj) {
+        ConjuntoTDA copia = copiaConj(conj);
+        int valor;
+
+        System.out.println("Valores del conjunto:");
+        while (!copia.conjuntoVacio()) {
+            valor = copia.obtener();
+            copia.sacar(valor);
+
+            System.out.printf("  %d", valor);
+        }
+        System.out.println();
+    }
 }

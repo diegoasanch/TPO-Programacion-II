@@ -1,3 +1,6 @@
+/** 
+ * @author Weigandt Alexis
+ */
 package misAplicaciones;
 
 import misImplementaciones.ColaStr;

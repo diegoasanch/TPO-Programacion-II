@@ -1,3 +1,5 @@
+/** @author Diego Sanchez */
+
 package misImplementaciones;
 import miApi.ColaIntTDA;
 
